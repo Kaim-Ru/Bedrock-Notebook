@@ -52,6 +52,8 @@ In the material, there are also properties that apply to the material as a whole
 
 ## Reading and Writing to the Stencil Buffer
 
+> With vibrant visuals, stencils are broken before 1.21.120 and require you to use a stencil mask past that point. The buffer is shared with PBR so there can be some strange interactions, e.g., 255 stencil mask will add the underwater water effect to the tops of geometry.
+
 ### Writing To The Stencil Buffer
 When you write to the stencil buffer, you typically perform the following steps:
 1. **Enable Stencil Testing and Writing**: Use `+states` to enable stencil testing (`EnableStencilTest`) and allow writing to the stencil buffer (`StencilWrite`).
@@ -62,22 +64,19 @@ When you write to the stencil buffer, you typically perform the following steps:
 The following example demonstrates how to write to the stencil buffer:
 ```json
 "+states": [
-    "EnableStencilTest",
-    "StencilWrite"
+    "StencilWrite",
+    "EnableStencilTest"
 ],
 "frontFace": {
     "stencilFunc": "Always",
-    "stencilFailOp": "Replace",
-    "stencilDepthFailOp": "Replace",
     "stencilPassOp": "Replace"
 },
 "backFace": {
     "stencilFunc": "Always",
-    "stencilFailOp": "Replace",
-    "stencilDepthFailOp": "Replace",
     "stencilPassOp": "Replace"
 },
-"stencilRef": 2
+"stencilRef": 1,
+"stencilWriteMask": 8
 ```
 
 In this example, the material writes a reference value (`stencilRef`) to the stencil buffer, replacing the existing value regardless of whether the stencil test passes or fails. 
@@ -95,14 +94,15 @@ The following material example shows how to read from the stencil buffer.
 "+states": [
     "EnableStencilTest"
 ],
+"depthFunc": "Always",
 "frontFace": {
-    "stencilFunc": "NotEqual"
+    "stencilFunc": "Equal"
 },
 "backFace": {
     "stencilFunc": "Equal"
 },
-"stencilRef": 2,
-"stencilReadMask": 2
+"stencilRef": 1,
+"stencilReadMask": 8
 ```
 
 In this example, the material reads from the stencil buffer to determine where to draw. It uses the stencil function to compare the `stencilRef` with the existing stencil buffer value.
