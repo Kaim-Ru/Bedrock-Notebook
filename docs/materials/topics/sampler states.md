@@ -52,19 +52,30 @@ To define a sampler state, add the `+samplerStates` array to the material, and s
 | Clamp      | If the UV goes beyond the bounds, then the texture should be stretched to fit. |
 | Repeat     | If the UV goes beyond the bounds, then the texture should repeat itself.       |
 
-To make the texture co-ordinates go beyond their defined bounds, you can use a [UV Animation](/materials/topics/defines.md#uv-animation).
+To make the texture co-ordinates go beyond their defined bounds, you can use a [UV Animation](/materials/topics/defines.md#uv-animation) along with an animation that scales the model.
 
 ```json
 // render_controllers/entity_name.json
 "uv_anim": {
     "offset": [
         0.0,
-        "math.mod(math.floor(q.life_time * fps), frame_count) / frame_count"
+        0.0
     ],
     "scale": [
-        "size_in_blocks",      
-        "size_in_blocks/frame_count"
+        2.0, // The amount the animation scales the model
+        2.0
     ]
+}
+```
+
+```json
+"animation.entity.animation_name": {
+    "loop": true,
+    "bones": {
+        "root": {
+            "scale": 2
+        }
+    }
 }
 ```
 
