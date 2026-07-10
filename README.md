@@ -1,4 +1,7 @@
 # The Bedrock Notebook
+Online version is currently unavailable
+
+---
 
 An unofficial documentation site for Minecraft Bedrock addon development.
 
