@@ -13,6 +13,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 const props = defineProps({
     path: {
         type: String,
@@ -25,7 +26,8 @@ const lines = computed(() => content.value.split('\n'))
 
 const fetchContent = async () => {
     try {
-        const response = await fetch(props.path)
+        const response = await fetch(withBase(props.path))
+        if (!response.ok) throw new Error(`HTTP ${response.status}`)
         const buffer = await response.arrayBuffer()
         const decoder = new TextDecoder('utf-16')
         content.value = decoder.decode(buffer)

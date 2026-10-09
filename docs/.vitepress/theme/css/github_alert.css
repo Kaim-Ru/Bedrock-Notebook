@@ -50,8 +50,8 @@
 }
 
 .custom-block.note .custom-block-title::before {
-    mask-image: url('/icons/note.svg');
-    -webkit-mask-image: url('/icons/note.svg');
+    mask-image: url('../../../public/icons/note.svg');
+    -webkit-mask-image: url('../../../public/icons/note.svg');
     background-color: #b3a1ff;
 }
 
@@ -69,8 +69,8 @@
 }
 
 .custom-block.warning .custom-block-title::before {
-    mask-image: url('/icons/warning.svg');
-    -webkit-mask-image: url('/icons/warning.svg');
+    mask-image: url('../../../public/icons/warning.svg');
+    -webkit-mask-image: url('../../../public/icons/warning.svg');
     background-color: #ffc766;
 }
 
@@ -88,8 +88,8 @@
 }
 
 .custom-block.info .custom-block-title::before {
-    mask-image: url('/icons/info.svg');
-    -webkit-mask-image: url('/icons/info.svg');
+    mask-image: url('../../../public/icons/info.svg');
+    -webkit-mask-image: url('../../../public/icons/info.svg');
     background-color: #7ab3e9;
 }
 
@@ -107,8 +107,8 @@
 }
 
 .custom-block.tip .custom-block-title::before {
-    mask-image: url('/icons/tip.svg');
-    -webkit-mask-image: url('/icons/tip.svg');
+    mask-image: url('../../../public/icons/tip.svg');
+    -webkit-mask-image: url('../../../public/icons/tip.svg');
     background-color: #8be78d;
 }
 
@@ -126,8 +126,8 @@
 }
 
 .custom-block.danger .custom-block-title::before {
-    mask-image: url('/icons/danger.svg');
-    -webkit-mask-image: url('/icons/danger.svg');
+    mask-image: url('../../../public/icons/danger.svg');
+    -webkit-mask-image: url('../../../public/icons/danger.svg');
     background-color: #f28b8b;
 }
 
@@ -153,7 +153,7 @@
 }
 
 .custom-block.caution .custom-block-title::before {
-    mask-image: url('/icons/caution.svg');
-    -webkit-mask-image: url('/icons/caution.svg');
+    mask-image: url('../../../public/icons/caution.svg');
+    -webkit-mask-image: url('../../../public/icons/caution.svg');
     background-color: #ffd54f;
 }

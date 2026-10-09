@@ -24,7 +24,11 @@ waist
 └── leftLeg
 ```
 
-<a href="/downloads/entity/topics/bone_bindings/example_skeleton.json" download>Download Example Model</a>
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
+<a :href="withBase('/downloads/entity/topics/bone_bindings/example_skeleton.json')" download>Download Example Model</a>
 
 > [!Note]
 > If you also want to adjust lead locations, you will need to add the `lead` and `lead_hold` particle locators to your model. To add a particle locator in Blockbench, you can right click any group and select the `Add Locator` button.
@@ -85,4 +89,3 @@ To address this, you can add the following render controller to the `0th` index 
     ]
 }
 ```
- 
